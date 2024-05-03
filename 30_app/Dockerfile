@@ -2,6 +2,9 @@ FROM node:16-alpine
 
 COPY . /home/node/webapp
 
+RUN apk add --no-cache python3 \
+    build-base
+
 RUN cd /home/node/webapp; \
     mv docker-entrypoint.sh /usr/local/bin; \
     chmod +x /usr/local/bin/docker-entrypoint.sh; \

@@ -58,8 +58,8 @@ resource "aws_ecs_task_definition" "webapp" {
 
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  cpu                      = 256 # .25 vCPU
-  memory                   = 512 # 512 MB
+  cpu                      = 512 # .25 vCPU
+  memory                   = 1024 # 512 MB
 
   runtime_platform {
     operating_system_family = "LINUX"
@@ -72,8 +72,8 @@ resource "aws_ecs_task_definition" "webapp" {
     {
       name      = "webapp"
       image     = "${aws_ecr_repository.webapp.repository_url}:latest"
-      cpu       = 256
-      memory    = 512
+      cpu       = 512
+      memory    = 1024
       essential = true
       portMappings = [
         {
